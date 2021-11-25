@@ -16,6 +16,8 @@ namespace WebApplication1.Models
         public DbSet<Lop> Lops { get; set; }
         public DbSet<Khoa> Khoas { get; set; }
         public DbSet<HocPhan> HocPhans { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        
 
 
     }
