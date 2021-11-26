@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,10 +11,12 @@ namespace WebApplication1.Models
     {
         [Key]
         [Required, MaxLength(20)]
-        public string MaHocPhan { get; set; }
+        public string TenLop { get; set; }
         [Required, MaxLength(20)]
-        public string TenHocPhan { get; set; }
-        [Required, MaxLength(20)]
-        public string SoTinChi { get; set; }
+        public string MaLop { get; set; }
+        
+        //public string MaKhoa { get; set; }
+        //[ForeignKey("MaKhoa")]
+        //public virtual Khoa Khoa { get; set; }
     }
 }

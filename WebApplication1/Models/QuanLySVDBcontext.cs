@@ -18,6 +18,8 @@ namespace WebApplication1.Models
         public DbSet<HocPhan> HocPhans { get; set; }
         public DbSet<Account> Accounts { get; set; }
         
+        
+        
 
 
     }

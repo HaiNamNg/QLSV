@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-        [HttpPatch]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
         public ActionResult Login(Account acc)
@@ -65,5 +65,7 @@ namespace WebApplication1.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+
+
     }
 }

@@ -127,6 +127,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Migrations\202111261633547_updateee.cs" />
+    <Compile Include="Migrations\202111261633547_updateee.Designer.cs">
+      <DependentUpon>202111261633547_updateee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111261654565_t-arano1.cs" />
+    <Compile Include="Migrations\202111261654565_t-arano1.Designer.cs">
+      <DependentUpon>202111261654565_t-arano1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Encrytion.cs" />
     <Compile Include="Controllers\HocPhansController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhoasController.cs" />
@@ -139,29 +148,20 @@
     <Compile Include="Migrations\202111230527580_khoa.Designer.cs">
       <DependentUpon>202111230527580_khoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111241127507_create_table_account.cs" />
-    <Compile Include="Migrations\202111241127507_create_table_account.Designer.cs">
-      <DependentUpon>202111241127507_create_table_account.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202111241745446_update.cs" />
     <Compile Include="Migrations\202111241745446_update.Designer.cs">
       <DependentUpon>202111241745446_update.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111241807596_uodate1.cs" />
-    <Compile Include="Migrations\202111241807596_uodate1.Designer.cs">
-      <DependentUpon>202111241807596_uodate1.cs</DependentUpon>
+    <Compile Include="Migrations\202111251059446_create_table_account.cs" />
+    <Compile Include="Migrations\202111251059446_create_table_account.Designer.cs">
+      <DependentUpon>202111251059446_create_table_account.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111250928264_1122.cs" />
-    <Compile Include="Migrations\202111250928264_1122.Designer.cs">
-      <DependentUpon>202111250928264_1122.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111251018341_1100.cs" />
-    <Compile Include="Migrations\202111251018341_1100.Designer.cs">
-      <DependentUpon>202111251018341_1100.cs</DependentUpon>
+    <Compile Include="Migrations\202111251452221_update1.cs" />
+    <Compile Include="Migrations\202111251452221_update1.Designer.cs">
+      <DependentUpon>202111251452221_update1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Encrytion.cs" />
     <Compile Include="Models\HocPhan.cs" />
     <Compile Include="Models\Khoa.cs" />
     <Compile Include="Models\Lop.cs" />
@@ -248,20 +248,20 @@
     <EmbeddedResource Include="Migrations\202111230527580_khoa.resx">
       <DependentUpon>202111230527580_khoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111241127507_create_table_account.resx">
-      <DependentUpon>202111241127507_create_table_account.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111241745446_update.resx">
       <DependentUpon>202111241745446_update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111241807596_uodate1.resx">
-      <DependentUpon>202111241807596_uodate1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111251059446_create_table_account.resx">
+      <DependentUpon>202111251059446_create_table_account.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111250928264_1122.resx">
-      <DependentUpon>202111250928264_1122.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111251452221_update1.resx">
+      <DependentUpon>202111251452221_update1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111251018341_1100.resx">
-      <DependentUpon>202111251018341_1100.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111261633547_updateee.resx">
+      <DependentUpon>202111261633547_updateee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111261654565_t-arano1.resx">
+      <DependentUpon>202111261654565_t-arano1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

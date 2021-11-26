@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-namespace WebApplication1.Models
+namespace WebApplication1.Controllers
 {
     public class Encrytion
     {

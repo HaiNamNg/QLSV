@@ -16,10 +16,21 @@ namespace WebApplication1.Migrations
                     })
                 .PrimaryKey(t => t.Username);
             
+            CreateTable(
+                "dbo.HocPhans",
+                c => new
+                    {
+                        MaHocPhan = c.String(nullable: false, maxLength: 20),
+                        TenHocPhan = c.String(nullable: false, maxLength: 20),
+                        SoTinChi = c.String(nullable: false, maxLength: 20),
+                    })
+                .PrimaryKey(t => t.MaHocPhan);
+            
         }
         
         public override void Down()
         {
+            DropTable("dbo.HocPhans");
             DropTable("dbo.Accounts");
         }
     }

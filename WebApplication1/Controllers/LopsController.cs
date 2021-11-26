@@ -10,7 +10,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    [Authorize]
+    
     public class LopsController : Controller
     {
         private QuanLySVDBcontext db = new QuanLySVDBcontext();
@@ -18,6 +18,7 @@ namespace WebApplication1.Controllers
         // GET: Lops
         public ActionResult Index()
         {
+            //var lops = db.Lops.Include(l => l.Khoa).Include(l => l.MaKhoa);
             return View(db.Lops.ToList());
         }
 
@@ -39,6 +40,7 @@ namespace WebApplication1.Controllers
         // GET: Lops/Create
         public ActionResult Create()
         {
+            //ViewBag.MaKhoa = new SelectList(db.Khoas, "MaKhoa", "TenKhoa");
             return View();
         }
 
@@ -87,6 +89,7 @@ namespace WebApplication1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            //ViewBag.MaKhoa = new SelectList(db.Khoas, "MaKhoa", "TenKhoa", lop.MaKhoa);
             return View(lop);
         }
 
@@ -102,6 +105,7 @@ namespace WebApplication1.Controllers
             {
                 return HttpNotFound();
             }
+            //ViewBag.MaKhoa = new SelectList(db.Khoas, "MaKhoa", "TenKhoa", lop.MaKhoa);
             return View(lop);
         }
 

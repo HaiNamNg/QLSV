@@ -10,7 +10,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    [Authorize]
+    
     public class KhoasController : Controller
     {
         private QuanLySVDBcontext db = new QuanLySVDBcontext();
@@ -20,7 +20,7 @@ namespace WebApplication1.Controllers
         {
             return View(db.Khoas.ToList());
         }
-
+        
         // GET: Khoas/Details/5
         public ActionResult Details(string id)
         {
