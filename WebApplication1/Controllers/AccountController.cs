@@ -12,6 +12,7 @@ namespace WebApplication1.Controllers
     {
         Encrytion encry = new Encrytion();
         QuanLySVDBcontext db = new QuanLySVDBcontext();
+        StringProcess strPro = new StringProcess();
         //Get: Account
         [HttpGet]
         public ActionResult Register()
@@ -34,29 +35,54 @@ namespace WebApplication1.Controllers
             return View(acc);
         }
         [HttpGet]
-        public ActionResult Login()
+        [AllowAnonymous]
+        public ActionResult Login(string returnUrl)
         {
+            if (CheckSession() == 1)
+            {
+                return RedirectToAction("Index", "HomeAdmin", new { Areas = "Admins" });
+            }
+            else if (CheckSession() == 2)
+            {
+                return RedirectToAction("Index", "", new { Areas = "" });
+            }
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Login(Account acc)
+
+        public ActionResult Login(Account acc, string returnUrl)
+
         {
-            if (ModelState.IsValid)
+            try
             {
-                string encrytionpass = encry.PasswordEncrytion(acc.Password);
-                var model = db.Accounts.Where(m => m.Username == acc.Username && m.Password == encrytionpass).ToList().Count();
-                //tt dn chinh xac
-                if (model == 1)
+                if (!string.IsNullOrEmpty(acc.Username) && !string.IsNullOrEmpty(acc.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(acc.Username, true);
-                    return RedirectToAction("Index", "Home");
+
+                    using (var db = new QuanLySVDBcontext())
+
+                    {
+                        var passToMD5 = strPro.GetMD5(acc.Username);
+                        var account = db.Accounts.Where(m => m.Username.Equals(acc.Username) && m.Username.Equals(passToMD5)).Count();
+                        if (account == 1)
+                        {
+                            FormsAuthentication.SetAuthCookie(acc.Username, false);
+                            Session["idUser"] = acc.Username;
+                            Session["roleUser"] = acc.RoleID;
+                            return RedirectTolocal(returnUrl);
+                        }
+
+                        ModelState.AddModelError("", "Thông tin đăng nhập chưa chính xác");
+
+                    }
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Thông tin đăng nhập chưa chính xác");
-                }
+                ModelState.AddModelError("", "Username and password is required.");
+            }
+
+            catch
+            {
+                ModelState.AddModelError("", "Hệ thống đang được bảo trì, vui lòng liên hệ với quản trị viên");
             }
             return View(acc);
         }
@@ -65,7 +91,55 @@ namespace WebApplication1.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+        //ktra ng dung dn quyen gi
+        private int CheckSession()
+        {
+            using (var db = new QuanLySVDBcontext())
+            {
+                var user = HttpContext.Session["idUser"];
+                if (user != null)
+                {
+                    var role = db.Accounts.Find(user.ToString()).RoleID;
+                    if (role != null)
+                    {
+                        if (role.ToString() == "Admin")
+                        {
+                            return 1;
+                        }
+                        else if (role.ToString() == "Sv")
+                        {
+                            return 2;
+                        }
 
+                    }
 
+                }
+
+            }
+
+            return 0;
+        }
+        private ActionResult RedirectTolocal(string returnUrl)
+        {
+            if (string.IsNullOrEmpty(returnUrl) || returnUrl == "/")
+            {
+                if (CheckSession() == 1)
+                {
+                    return RedirectToAction("Index", "HomeAdmin", new { Area = "Admins" });
+                }
+                else if (CheckSession() == 2)
+                {
+                    return RedirectToAction("Index", "HomeSv", new { Area = "SinhVien" });
+                }
+            }
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
     }
 }

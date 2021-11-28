@@ -126,7 +126,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admins\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admins\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\SinhVien\Controllers\HomeSvController.cs" />
+    <Compile Include="Areas\SinhVien\SinhVienAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\LopsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Migrations\202111261633547_updateee.cs" />
     <Compile Include="Migrations\202111261633547_updateee.Designer.cs">
       <DependentUpon>202111261633547_updateee.cs</DependentUpon>
@@ -135,11 +141,14 @@
     <Compile Include="Migrations\202111261654565_t-arano1.Designer.cs">
       <DependentUpon>202111261654565_t-arano1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111280908050_troioicovid.cs" />
+    <Compile Include="Migrations\202111280908050_troioicovid.Designer.cs">
+      <DependentUpon>202111280908050_troioicovid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Encrytion.cs" />
     <Compile Include="Controllers\HocPhansController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhoasController.cs" />
-    <Compile Include="Controllers\LopsController.cs" />
     <Compile Include="Controllers\SinhViensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,7 +175,10 @@
     <Compile Include="Models\Khoa.cs" />
     <Compile Include="Models\Lop.cs" />
     <Compile Include="Models\QuanLySVDBcontext.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\SinhVien.cs" />
+    <Compile Include="Models\StringProcess.cs" />
+    <Compile Include="Models\UsersRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +192,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admins\Views\web.config" />
+    <Content Include="Areas\Admins\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Admins\Views\HomeAdmin\About.cshtml" />
+    <Content Include="Areas\SinhVien\Views\web.config" />
+    <Content Include="Areas\SinhVien\Views\HomeSv\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -210,11 +228,6 @@
     <Content Include="Views\SinhViens\Details.cshtml" />
     <Content Include="Views\SinhViens\Edit.cshtml" />
     <Content Include="Views\SinhViens\Index.cshtml" />
-    <Content Include="Views\Lops\Create.cshtml" />
-    <Content Include="Views\Lops\Delete.cshtml" />
-    <Content Include="Views\Lops\Details.cshtml" />
-    <Content Include="Views\Lops\Edit.cshtml" />
-    <Content Include="Views\Lops\Index.cshtml" />
     <Content Include="Views\Khoas\Create.cshtml" />
     <Content Include="Views\Khoas\Delete.cshtml" />
     <Content Include="Views\Khoas\Details.cshtml" />
@@ -227,9 +240,22 @@
     <Content Include="Views\HocPhans\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Lops\Create.cshtml" />
+    <Content Include="Views\Lops\Delete.cshtml" />
+    <Content Include="Views\Lops\Details.cshtml" />
+    <Content Include="Views\Lops\Edit.cshtml" />
+    <Content Include="Views\Lops\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admins\Data\" />
+    <Folder Include="Areas\SinhVien\Data\" />
+    <Folder Include="Areas\SinhVien\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -262,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111261654565_t-arano1.resx">
       <DependentUpon>202111261654565_t-arano1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111280908050_troioicovid.resx">
+      <DependentUpon>202111280908050_troioicovid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

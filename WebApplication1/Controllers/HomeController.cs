@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     public class HomeController : Controller
     {
         //khong can ktra thi viet anolymus
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")] 
         public ActionResult Index()
         {
             return View();

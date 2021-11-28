@@ -14,5 +14,7 @@ namespace WebApplication1.Models
         [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        [StringLength(10)]
+        public string RoleID { get; set; }
     }
 }

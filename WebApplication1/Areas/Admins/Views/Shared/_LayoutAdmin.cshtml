@@ -20,16 +20,16 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("SinhVien", "Index", "SinhViens")</li>
                     <li>@Html.ActionLink("Khoa", "Index", "Khoas")</li>
                     <li>@Html.ActionLink("Lop", "Index", "Lops")</li>
                     <li>@Html.ActionLink("HocPhan", "Index", "HocPhans")</li>
-                    <li>@Html.ActionLink("Register", "Register", "Account", new { area = "" }, new { @clas = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Register", "Register", "Account")</li>
                     <li>@Html.ActionLink("Login", "Login", "Account")</li>
                     <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
-                    <li>@Html.ActionLink("Role", "Index", "Roles")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "HomeAdmin", new { area = "Admins"}, new { @clas = "navbar-brand"})</li>
-                    <li>@Html.ActionLink("SinhVien", "Index", "HomeSv", new { area = "SinhVien"}, new { @clas = "navbar-brand"})</li>
 
 
 
@@ -52,3 +52,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
